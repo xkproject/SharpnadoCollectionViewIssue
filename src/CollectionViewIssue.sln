@@ -5,7 +5,13 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionViewIssue.Android", "CollectionViewIssue\CollectionViewIssue.Android\CollectionViewIssue.Android.csproj", "{82FE7283-362A-4DDE-A6C6-823A7F29E196}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionViewIssue", "CollectionViewIssue\CollectionViewIssue\CollectionViewIssue.csproj", "{F2E9E428-7665-4E45-8C63-2ED852A00FFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionViewIssue", "CollectionViewIssue\CollectionViewIssue\CollectionViewIssue.csproj", "{F2E9E428-7665-4E45-8C63-2ED852A00FFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{4FF92212-8681-4DED-95F4-BBC384D20AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpnado.CollectionView.Droid", "..\Sharpnado.CollectionView\Xamarin.Forms\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj", "{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharpnado.CollectionView", "..\Sharpnado.CollectionView\Xamarin.Forms\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj", "{788D3610-0A8C-465F-86E8-605EEC205023}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,18 @@ Global
 		{F2E9E428-7665-4E45-8C63-2ED852A00FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2E9E428-7665-4E45-8C63-2ED852A00FFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2E9E428-7665-4E45-8C63-2ED852A00FFD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4FF92212-8681-4DED-95F4-BBC384D20AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF92212-8681-4DED-95F4-BBC384D20AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF92212-8681-4DED-95F4-BBC384D20AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF92212-8681-4DED-95F4-BBC384D20AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788D3610-0A8C-465F-86E8-605EEC205023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788D3610-0A8C-465F-86E8-605EEC205023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788D3610-0A8C-465F-86E8-605EEC205023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788D3610-0A8C-465F-86E8-605EEC205023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
