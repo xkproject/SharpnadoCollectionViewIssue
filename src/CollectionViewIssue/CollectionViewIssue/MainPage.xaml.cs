@@ -24,7 +24,7 @@ namespace CollectionViewIssue
             InitializeComponent();
             BindingContext = this;
             LoadFakeData();
-            SillyPeople = new ObservableRangeCollection<SillyDudeVmo>();
+            SillyPeople = new ObservableCollection<SillyDudeVmo>();
             SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize);
             
         }

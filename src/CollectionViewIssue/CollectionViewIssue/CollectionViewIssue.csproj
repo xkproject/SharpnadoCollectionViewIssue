@@ -16,6 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Sharpnado.CollectionView\Xamarin.Forms\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj" />
+    <ProjectReference Include="..\..\..\Sharpnado.CollectionView\Sharpnado.CollectionView\Sharpnado.CollectionView.csproj" />
   </ItemGroup>
 </Project>
