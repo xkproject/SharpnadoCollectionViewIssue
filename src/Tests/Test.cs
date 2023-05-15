@@ -14,6 +14,8 @@ namespace Tests
         [TestMethod]
         public void TestMethod1()
         {
+            while (true)
+                _Driver.FindElementByAccessibilityId("Reload", WaitConfig.Default).Click();
         }
     }
 }

@@ -29,8 +29,8 @@ namespace Tests.helpers
             capabilities.AddAdditionalCapability(MobileCapabilityType.AutomationName, Environment.GetEnvironmentVariable("AUTOMATION_NAME"));
 
             // - ANDROID CAPABILITIES -
-            capabilities.AddAdditionalCapability(AndroidMobileCapabilityType.AppPackage, Environment.GetEnvironmentVariable("APP_PACKAGE"));
-            capabilities.AddAdditionalCapability(AndroidMobileCapabilityType.AppActivity, Environment.GetEnvironmentVariable("APP_ACTIVITY"));
+            //capabilities.AddAdditionalCapability(AndroidMobileCapabilityType.AppPackage, Environment.GetEnvironmentVariable("APP_PACKAGE"));
+            //capabilities.AddAdditionalCapability(AndroidMobileCapabilityType.AppActivity, Environment.GetEnvironmentVariable("APP_ACTIVITY"));
 
             // - SERVER OPTIONS -
             var serverOptions = new OptionCollector();

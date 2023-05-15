@@ -87,6 +87,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Sharpnado.CollectionView\Sharpnado.CollectionView.Droid\Sharpnado.CollectionView.Droid.csproj">
+      <Project>{F2D4F3E6-CB34-4D17-92CA-0A9BFDE9C811}</Project>
+      <Name>Sharpnado.CollectionView.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CollectionViewIssue\CollectionViewIssue.csproj">
       <Project>{E68A6C0D-2EFC-4AEB-98B6-2176F44077FA}</Project>
       <Name>CollectionViewIssue</Name>

@@ -2,268 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sho="http://sharpnado.com"
-             x:Class="CollectionViewIssue.MainPage"
-             x:Name="this">
+             x:Class="CollectionViewIssue.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="template">
                 <ViewCell>
-                    <Grid HeightRequest="300" WidthRequest="200" BackgroundColor="Orange">
-                        <Label Text="Hello"></Label>
-                    </Grid>
+                    <Frame>
+                        <Grid HeightRequest="300" WidthRequest="200" >
+                            <Label Text="{Binding Name}"></Label>
+                        </Grid>
+                    </Frame>
                 </ViewCell>
             </DataTemplate>
-            <!--<DataTemplate x:Key="_HorizontalTabletProductSalesOperationsTemplate"
-                x:DataType="viewModels:VMInfoForSaleItemContainer">
-                <ViewCell>
-                    <Grid
-                        AutomationId="Sales_ProductItem"
-                        IsVisible="{Binding UIProductSalesOperations}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition
-                                Height="{StaticResource 20dp}" />
-                            <RowDefinition
-                                Height="{StaticResource 259dp}" />
-                            <RowDefinition
-                                Height="{StaticResource 80dp}" />
-                            <RowDefinition
-                                Height="{StaticResource 157dp}" />
-                        </Grid.RowDefinitions>
-                        --><!--xct:TouchEffect.NativeAnimation="True"
-                            xct:TouchEffect.NativeAnimationColor="{StaticResource MainRipple}"
-                            xct:TouchEffect.Command="{Binding ActivateProductTapBehaviorIfNotCatalogCommand}"--><!--
-                        <Frame
-                            Grid.Row="1"
-                            Grid.RowSpan="3"
-                           
-                            
-                            CornerRadius="{StaticResource 4dp_float}" />
-                        <ContentView
-                            Grid.Row="1"
-                            ControlTemplate="{StaticResource _HorizontalTabletCommonProductDescription}" />
-                        <ContentView
-                            Grid.Row="2"
-                            ControlTemplate="{StaticResource _HorizontalTabletCommonProductExtraInfo}" />
-                        <Grid
-                            Grid.Row="3"
-                            Padding="{StaticResource 16;11;16;24dp}"
-                            RowSpacing="{StaticResource 25dp}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition
-                                    Height="{StaticResource 55dp}" />
-                                <RowDefinition
-                                    Height="{StaticResource 40dp}" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition
-                                    Width="{StaticResource 55dp}" />
-                                <ColumnDefinition
-                                    Width="{StaticResource 138dp}" />
-                                <ColumnDefinition
-                                    Width="{StaticResource 55dp}" />
-                            </Grid.ColumnDefinitions>
-                            <Frame
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                
-                                BackgroundColor="{StaticResource GreyMedium}"
-                                BorderColor="{StaticResource Transparent}"
-                                CornerRadius="{StaticResource 4dp_float}">
-                                <Label
-                                    HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center"
-                                    FontFamily="{StaticResource FontAwesomeSolid}"
-                                    FontSize="{StaticResource 24sp}"
-                                    TextColor="{StaticResource GreyDark}"
-                                    Text="{StaticResource MinusGlyph}" />
-                            </Frame>
-                            --><!--xct:TouchEffect.Command="{Binding VMVentaPrepedido.RestarUnoEnQuantityCommand}"--><!--
-                            <Frame
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                IsVisible="{Binding VMVentaPrepedido.CanExecuteRestarUnoEnQuantityCommand}"
-                              
-                              
-                                BackgroundColor="{StaticResource White}"
-                                BorderColor="{StaticResource MainColor}"
-                                CornerRadius="{StaticResource 4dp_float}">
-                                <Label
-                                    HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center"
-                                    FontFamily="{StaticResource FontAwesomeSolid}"
-                                    FontSize="{StaticResource 24sp}"
-                                    TextColor="{StaticResource MainColor}"
-                                    Text="{StaticResource MinusGlyph}" />
-                            </Frame>
-                            <Frame
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                IsVisible="{Binding HaveToShowPreassignedPromotionTag}"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Start"
-                                Padding="{StaticResource 5;0dp}"
-                                CornerRadius="{StaticResource 23dp_float}"
-                                >
-                                <Label
-                                    Text="Promo"
-                                    FontSize="10"
-                              />
-                            </Frame>
-                            <BoxView
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                VerticalOptions="End"
-                                Margin="{StaticResource 8;0dp}"
-                                HeightRequest="{StaticResource 1dp}"
-                                BackgroundColor="{StaticResource MainColor}" />
-                            <components:EntryWithoutBorder
-                                AutomationId="Sales_ProductItem_Quantity"
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                xct:TouchEffect.NativeAnimation="True"
-                                xct:TouchEffect.NativeAnimationColor="{StaticResource MainRipple}"
-                                WidthRequest="{StaticResource 138dp}"
-                                CustomHorizontalTextAlignmentCenter="true"
-                                Focused="PrepedidoEntryFocused"
-                                Keyboard="Numeric"
-                                FontFamily="{StaticResource RobotoMonoBold}"
-                                FontSize="{StaticResource 32sp}"
-                                TextColor="{Binding VMVentaPrepedido.IsAValidQuantityForPreassignedPromotionColor, Converter={StaticResource IntToValidValue}}"
-                                Text="{Binding VMVentaPrepedido.QuantityValueForUI, Converter={StaticResource DecimalToStringConverter}, Mode=TwoWay}" />
-                            <Frame
-                                AutomationId="Sales_ProductItem_Button_AddQuantity"
-                                Grid.Row="0"
-                                Grid.Column="2"
-                                xct:TouchEffect.NativeAnimation="True"
-                                xct:TouchEffect.NativeAnimationColor="{StaticResource MainRipple}"
-                                xct:TouchEffect.Command="{Binding VMVentaPrepedido.SumarUnoEnQuantityCommand, Mode=OneTime}"
-                                BackgroundColor="{StaticResource MainColor}"
-                                CornerRadius="{StaticResource 4dp_float}">
-                                <Label
-                                    HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center"
-                                    FontFamily="{StaticResource FontAwesomeSolid}"
-                                    FontSize="{StaticResource 24sp}"
-                                    Text="{StaticResource PlusGlyph}"
-                                    TextColor="{StaticResource White}" />
-                            </Frame>
-                            <sharedComponents:Picker
-                                AutomationId="Sales_ProductItem_Picker_Format"
-                                x:Name="FormatPicker"
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="3"
-                                SelectedItemMargin="{StaticResource 10;0dp}"
-                                TitleDropdownList="Selecciona un formato"
-                                SelectedItem="{Binding VMVentaPrepedido.SelectedItemProductFormatPrepedido, Mode=TwoWay}"
-                                xct:TouchEffect.NormalBackgroundColor="{StaticResource White}"
-                                ItemsSource="{Binding Item.Product.ActiveProductFormats, Mode=OneTime}"
-                                SelectedItemText="{Binding VMVentaPrepedido.SelectedItemProductFormatPrepedido, Converter={StaticResource BoxesToBoxesMultiplier}, ConverterParameter=UnitsMultiplier}"
-                                PickerTemplate="RoundedBorder"
-                                FocusedBorderColor="{StaticResource GreyMedium}"
-                                UnfocusedBorderColor="{StaticResource GreyMedium}"
-                                SelectedItemFontFamily="{StaticResource RobotoMedium}"
-                                SelectedItemTextColor="{StaticResource MainColor}"
-                                SelectedItemFontSize="{StaticResource 16sp}"
-                                UnfocusedBackgroundColor="{StaticResource White}"
-                                FocusedBackgroundColor="{StaticResource MainColorLight}">
-                                <sharedComponents:Picker.ItemTemplate>
-                                    <DataTemplate
-                                        x:DataType="productManagement:ProductFormatDTO">
-                                        <sharedHelpers:PickerItem
-                                            Description="{Binding Converter={StaticResource BoxesToBoxesMultiplier}, ConverterParameter=UnitsMultiplier}" />
-                                    </DataTemplate>
-                                </sharedComponents:Picker.ItemTemplate>
-                            </sharedComponents:Picker>
-                        </Grid>
-                        <Frame
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Start"
-                            IsVisible="{Binding ToggleTemplateButtonVisibility, Mode=OneTime}"
-                            xct:TouchEffect.NativeAnimation="True"
-                            xct:TouchEffect.NativeAnimationColor="{StaticResource MainRipple}"
-                            xct:TouchEffect.Command="{Binding ToggleTemplateCommand, Mode=OneTime}"
-                            WidthRequest="{StaticResource 40dp}"
-                            HeightRequest="{StaticResource 40dp}"
-                            Margin="{StaticResource 20;0;0;0dp}"
-                            BackgroundColor="{StaticResource MainColorLight}"
-                            CornerRadius="{StaticResource 2dp_float}"
-                            HasShadow="True">
-                            <Label
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-                                Text="{StaticResource RetweetGlyph}"
-                                TextColor="{StaticResource MainColor}"
-                                FontFamily="{StaticResource FontAwesomeSolid}"
-                                FontSize="{StaticResource 20sp}" />
-                        </Frame>
-                        <Frame
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            IsVisible="{Binding IsProductSold}"
-                            VerticalOptions="Start"
-                            HorizontalOptions="End"
-                            WidthRequest="{StaticResource 25dp}"
-                            HeightRequest="{StaticResource 25dp}"
-                            Margin="{StaticResource 0;5;16;0dp}"
-                            BackgroundColor="{StaticResource GreenSoldTag}"
-                            CornerRadius="{StaticResource 2dp_float}"
-                            HasShadow="True">
-                            <Label
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-                                Text="{StaticResource ShoppingBasketGlyph}"
-                                TextColor="{StaticResource White}"
-                                FontFamily="{StaticResource FontAwesomeSolid}"
-                                FontSize="{StaticResource 14sp}" />
-                        </Frame>
-                        <Frame
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            IsVisible="{Binding IsProductAbonado}"
-                            VerticalOptions="Start"
-                            HorizontalOptions="End"
-                            WidthRequest="{StaticResource 25dp}"
-                            HeightRequest="{StaticResource 25dp}"
-                            Margin="{StaticResource 0;5;16;0dp}"
-                            BackgroundColor="{StaticResource RedRefundTag}"
-                            CornerRadius="{StaticResource 2dp_float}"
-                            HasShadow="True">
-                            <Label
-                                HorizontalTextAlignment="Center"
-                                VerticalTextAlignment="Center"
-                                Text="{StaticResource ShoppingBasketGlyph}"
-                                TextColor="{StaticResource White}"
-                                FontFamily="{StaticResource FontAwesomeSolid}"
-                                FontSize="{StaticResource 14sp}" />
-                        </Frame>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>-->
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Orientation="Vertical">
-        <Label Text="{Binding Title, Source={x:Reference this}}" FontSize="Title" BackgroundColor="LightBlue" Padding="30,10,30,10">
+        <Label AutomationId="Reload" Text="{Binding Title}" FontSize="Title" BackgroundColor="LightBlue" Padding="30,10,30,10">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
             </Label.GestureRecognizers>
         </Label>
-
-
         <sho:CollectionView
                     AutomationId="Sales_ProductItemList"
-                    
                     CollectionLayout="Horizontal"
                     HeightRequest="400"
-                    BackgroundColor="Yellow"
-                    ItemsSource="{Binding SillyPeople, Source={x:Reference this}}"
-                    InfiniteListLoader="{Binding SillyPeoplePaginator, Source={x:Reference this}}"
+                    ItemsSource="{Binding SillyPeople}"
+                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
                     ItemWidth="280"
                     ItemHeight="516"
                     ItemSpacing="40"
                     ItemTemplate="{StaticResource template}" />
     </StackLayout>
-
 </ContentPage>

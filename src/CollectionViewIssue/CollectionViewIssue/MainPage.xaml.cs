@@ -22,16 +22,13 @@ namespace CollectionViewIssue
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = this;
+            
             Title = "Reload";
             LoadFakeData();
-            var list = new List<SillyDudeVmo>();
-            var item = new SillyDude(1, "hola", "hola", "hola", "hola", 1, "hola", "hola");
-            list.Add(new SillyDudeVmo(item));
-            SillyPeople = new ObservableCollection<SillyDudeVmo>((List<SillyDudeVmo>)list);
+            SillyPeople = new ObservableCollection<SillyDudeVmo>();
             SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize);
-            //SillyPeoplePaginator.LoadPage(1, false);
-            
+            SillyPeoplePaginator.LoadPage(1, false);
+            BindingContext = this;
         }
         public void LoadFakeData()
         {
@@ -197,10 +194,6 @@ namespace CollectionViewIssue
         }
         private async Task<PageResult<SillyDude>> LoadSillyPeoplePageAsync(int pageNumber, int pageSize, bool isRefresh)
         {
-            for (int i = 0; i < pageSize; i++)
-            {
-
-            }
             PageResult<SillyDude> resultPage = await GetSillyPeoplePageAsync(pageNumber, pageSize);
             var viewModels = resultPage.Items.Select(dude => new SillyDudeVmo(dude/*, GoToSillyDudeCommand*/)).ToList();
 
@@ -212,25 +205,6 @@ namespace CollectionViewIssue
             {
                 SillyPeople.Add(item);
             }
-            //SillyPeople.AddRange(viewModels);
-
-            // Uncomment to test CurrentIndex property
-            // TaskMonitor.Create(
-            //    async () =>
-            //    {
-            //        await Task.Delay(2000);
-            //        CurrentIndex = 15;
-            //    });
-
-            // Uncomment to test Reset action
-            // TaskMonitor.Create(
-            //   async () =>
-            //   {
-            //       await Task.Delay(6000);
-            //       SillyPeople.Clear();
-            //       await Task.Delay(3000);
-            //       SillyPeople = new ObservableRangeCollection<SillyDudeVmo>(viewModels);
-            //   });
 
             return resultPage;
         }
@@ -301,7 +275,7 @@ namespace CollectionViewIssue
     }
     public class SillyDudeVmo
     {
-        public SillyDudeVmo(SillyDude dude/*, ICommand onItemTappedCommand*/)
+        public SillyDudeVmo(SillyDude dude)
         {
             if (dude != null)
             {
@@ -314,13 +288,9 @@ namespace CollectionViewIssue
                 SillinessDegree = dude.SillinessDegree;
                 SourceUrl = dude.SourceUrl;
             }
-
-            //OnItemTappedCommand = onItemTappedCommand;
         }
 
         public bool IsMovable { get; protected set; } = true;
-
-        //public ICommand OnItemTappedCommand { get; set; }
 
         public int Id { get; }
 
