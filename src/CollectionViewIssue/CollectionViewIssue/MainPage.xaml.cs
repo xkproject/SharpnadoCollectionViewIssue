@@ -15,7 +15,7 @@ using Xamarin.Forms;
 
 namespace CollectionViewIssue
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
         private Dictionary<int, SillyDude>  _Data =  new  Dictionary<int, SillyDude>();
         private const int PageSize = 20;
@@ -23,9 +23,11 @@ namespace CollectionViewIssue
         {
             InitializeComponent();
             BindingContext = this;
+            Title = "Reload";
             LoadFakeData();
             SillyPeople = new ObservableCollection<SillyDudeVmo>();
             SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize);
+            SillyPeoplePaginator.LoadPage(1, false);
             
         }
         public void LoadFakeData()
@@ -234,6 +236,12 @@ namespace CollectionViewIssue
         {
             get => _sillyPeople;
             set => SetAndRaise(ref _sillyPeople, value);
+        }
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => SetAndRaise(ref _title, value);
         }
         public Paginator<SillyDude> SillyPeoplePaginator { get; }
         protected bool SetAndRaise<T>(ref T property, T value, [CallerMemberName] string propertyName = null)

@@ -245,7 +245,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Orientation="Vertical">
-        <Label Text="Reload" FontSize="Title" BackgroundColor="LightBlue" Padding="30,10,30,10">
+        <Label Text="{Binding Title, Source={x:Reference this}}" FontSize="Title" BackgroundColor="LightBlue" Padding="30,10,30,10">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
             </Label.GestureRecognizers>
@@ -258,8 +258,8 @@
                     CollectionLayout="Horizontal"
                     HeightRequest="400"
                     BackgroundColor="Yellow"
-                    ItemsSource="{Binding SillyPeople}"
-                    InfiniteListLoader="{Binding SillyPeoplePaginator}"
+                    ItemsSource="{Binding SillyPeople, Source={x:Reference this}}"
+                    InfiniteListLoader="{Binding SillyPeoplePaginator, Source={x:Reference this}}"
                     ItemWidth="280"
                     ItemHeight="516"
                     ItemSpacing="40"
