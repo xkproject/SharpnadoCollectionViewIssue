@@ -25,9 +25,12 @@ namespace CollectionViewIssue
             BindingContext = this;
             Title = "Reload";
             LoadFakeData();
-            SillyPeople = new ObservableCollection<SillyDudeVmo>();
+            var list = new List<SillyDudeVmo>();
+            var item = new SillyDude(1, "hola", "hola", "hola", "hola", 1, "hola", "hola");
+            list.Add(new SillyDudeVmo(item));
+            SillyPeople = new ObservableCollection<SillyDudeVmo>((List<SillyDudeVmo>)list);
             SillyPeoplePaginator = new Paginator<SillyDude>(LoadSillyPeoplePageAsync, pageSize: PageSize);
-            SillyPeoplePaginator.LoadPage(1, false);
+            //SillyPeoplePaginator.LoadPage(1, false);
             
         }
         public void LoadFakeData()
